@@ -24,7 +24,7 @@ my_list = [RI(0, 10) for _ in range(11)]
 print(f'Исходный список: {my_list}')
 
 new_list = list(zip(my_list, list(x for x in my_list[::-1])))
-new_list = list(x[1]
-                for x in list(enumerate(new_list)) if x[0] < len(new_list)//2)
+new_list = list(y
+                for x, y in list(enumerate(new_list)) if x < len(new_list)//2)
 mult_list = list(map(lambda x: x[0]*x[1], new_list))
 print(f'Произведения пар: {mult_list}')
