@@ -19,15 +19,12 @@
 # print('Произведения пар значений списка:')
 # print(product_list)
 
-from random import randint as RI 
-my_list = [RI(0,10) for _ in range(10)]
+from random import randint as RI
+my_list = [RI(0, 10) for _ in range(11)]
 print(f'Исходный список: {my_list}')
 
-new_list = list(zip(my_list,list(x for x in my_list[::-1])))
-
-print(new_list)
-if len(new_list)%2 != 0:
-    new_list.pop(len(new_list)//2)
-    
+new_list = list(zip(my_list, list(x for x in my_list[::-1])))
+new_list = list(x[1]
+                for x in list(enumerate(new_list)) if x[0] < len(new_list)//2)
 mult_list = list(map(lambda x: x[0]*x[1], new_list))
-print(mult_list)
+print(f'Произведения пар: {mult_list}')
